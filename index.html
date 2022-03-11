@@ -85,6 +85,21 @@
                         <p>We know that javascript code runs on the browser. The browser has a browser engine to execute the program. Google chrome has v8 engine, fire-fox has spider monkey engine, internet explorer has chakra engine. Let's take an example v8 engine of chrome browser. When v8 engine takes the javascript code from the js program source files then v8 engine starts parsing the code using “parser”. Then parsing is converted into “Abstract Syntax Tree(AST). After that interpreter ignition converts this Abstract Syntax Tree to “Bytecode” or by using “Just in Time Compiler “optimized machine code”. Just in Time Compiler Increases the performance and code runs faster. In this way javascript code works in v8 engine to execute the program.</p>
                     </article>
                 </div>
+                <div class="col-12">
+                    <h3>what does JavaScript event loop do?</h3>
+                    <article>
+                        <p>First of all we have to know javascript is a single threaded and synchronized language. What does it mean? It means when the javascript code runs on the browser that time the browser engine starts reading the code from the top position and until the complete first line it will not move to the next line. In that case  javascript code execution performance will be low. Because if any loop or complex function starts executing from the top then the bottom code line will be waiting until the complete top loop or complex function. Then an asynchronous function was invented to recover this problem.When calling the asynchronous function that time browser engine increases its working capability to run the code. In that case the browser engine is divided into three states:
+                        </p>
+                        <ol>
+                            <li>Call Stack</li>
+                            <li>WebAPI</li>
+                            <li>Callback Queue</li>
+                        </ol>
+                        <p>
+                            When calling any normal function that time call stack directly prints the output result in the console.But when an asynchronous function(setTimeout, setInterval,DOM,fetch) comes to the call stack then the call stack sends this function to the WebAPI. Then WebAPI will finish the task and send it to the callback queue. Then the call back queue holds these asynchronous functions as a waiting state. In this situation the event loop will start its task. Actually the event loop is placed between call stack and callback queue. The event loop checks whether any sync task is running or not inside the call stack state. If the event loop finds  any running sync task is available in the call stack then the event loop will be waiting otherwise the event loop will go to the call stack. And whatever tasks or functions have an event loop, it will send the tasks from the callback queue to the call stack as a serial-wise. Overall tasks will be sent through a loop to the call stack and for this reason it is called event loop. After that call stack will print the output.Actually, in this way even the loop does its work.
+                        </p>
+                    </article>
+                </div>
             </div>
         </section>
         <footer></footer>
